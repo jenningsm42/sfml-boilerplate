@@ -3,6 +3,7 @@
 #include <memory>
 
 #include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
 
 #include "AssetCache.hpp"
 #include "InputHandler.hpp"
@@ -20,12 +21,14 @@ class Game {
         AssetCache& getAssetCache() noexcept;
         SceneHandler& getSceneHandler() noexcept;
         sf::RenderWindow& getRenderWindow() noexcept;
+        tgui::Gui& getGui() noexcept;
 
     private:
         AssetCache m_assetCache;
         InputHandler m_inputHandler;
         SceneHandler m_sceneHandler;
         sf::RenderWindow m_window;
+        tgui::Gui m_gui;
 
         void update(float deltaTime);
         void draw();
