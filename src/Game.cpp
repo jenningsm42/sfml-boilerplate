@@ -5,8 +5,8 @@
 #include <fstream>
 #include <iomanip>
 
-Game::Game() : m_assetCache("./data"), m_window(sf::VideoMode(800, 600), "GGJ 2019")
-{
+Game::Game() : m_assetCache("./data"), m_window(sf::VideoMode(800, 600), "GGJ 2019") {
+    m_gui.setTarget(m_window);
 }
 
 Game::~Game() {
@@ -28,6 +28,7 @@ void Game::run() {
                 m_window.close();
             }
             m_inputHandler.processEvent(event);
+            m_gui.handleEvent(event);
         }
 
         // Record time elapsed between frames for updates
@@ -38,9 +39,14 @@ void Game::run() {
 
         // Draw everything
         m_window.clear();
+
+        // Everything in the scene
         m_sceneHandler.draw(m_window);
-        // tgui.draw(m_window);
+
+        // Foreground objects - the GUI and screen overlay
+        m_gui.draw();
         m_sceneHandler.drawFade(m_window);
+
         m_window.display();
     }
 }
@@ -55,6 +61,10 @@ SceneHandler& Game::getSceneHandler() noexcept {
 
 sf::RenderWindow& Game::getRenderWindow() noexcept {
     return m_window;
+}
+
+tgui::Gui& Game::getGui() noexcept {
+    return m_gui;
 }
 
 void Game::update(float deltaTime) {

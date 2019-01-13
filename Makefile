@@ -1,4 +1,4 @@
-LIBS=-lsfml-graphics -lsfml-window -lsfml-system
+LIBS=-ltgui -lsfml-graphics -lsfml-window -lsfml-system
 CXX := g++
 SRC_DIR := ./src
 OBJ_DIR := ./obj

@@ -69,6 +69,7 @@ void SceneHandler::drawFade(sf::RenderWindow& window) noexcept {
 }
 
 void SceneHandler::switchScenes(Game& game) {
+    game.getGui().removeAllWidgets();
     m_currentScene = std::move(m_nextScene);
     m_nextScene = nullptr;
 
