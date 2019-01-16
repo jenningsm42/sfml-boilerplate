@@ -1,5 +1,7 @@
 obj/
 build/
+x64/
+.vs/
 
 .ycm_extra_conf.py
 
