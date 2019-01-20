@@ -50,7 +50,7 @@ void SceneHandler::update(Game& game, float deltaTime) {
         switchScenes(game);
     }
 
-    // Render the current scene
+    // Update the current scene
     if (m_currentScene) {
         m_currentScene->update(game, deltaTime);
     }
