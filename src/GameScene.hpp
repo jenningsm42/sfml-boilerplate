@@ -1,7 +1,7 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
-#include <memory>
 #include "Scene.hpp"
+#include "AnimatedSprite.hpp"
 
 class GameScene : public Scene {
     public:
@@ -11,6 +11,7 @@ class GameScene : public Scene {
 
     private:
         sf::Text m_text;
+        AnimatedSprite m_sprite;
 };
 
 #endif // GAMESCENE_H
