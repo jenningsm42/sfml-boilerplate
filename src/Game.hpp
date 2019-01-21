@@ -20,6 +20,7 @@ class Game {
 
         AssetCache& getAssetCache() noexcept;
         SceneHandler& getSceneHandler() noexcept;
+        InputHandler& getInputHandler() noexcept;
         sf::RenderWindow& getRenderWindow() noexcept;
         tgui::Gui& getGui() noexcept;
 

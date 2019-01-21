@@ -45,9 +45,19 @@ void AnimatedSprite::addAnimation(
 
     m_animations[name] = std::tuple<int, int, int, float>(
         startColumn, startRow, frameCount, frameTime);
+
+    // If this is the first animation, play it by default
+    if (m_currentAnimationName == "") {
+        play(name);
+    }
 }
 
 void AnimatedSprite::play(const std::string& name) noexcept {
+    if (name == m_currentAnimationName) {
+        return;
+    }
+
+    m_currentAnimationName = name;
     m_currentAnimation = m_animations[name];
 
     m_currentColumn = std::get<0>(m_currentAnimation);
