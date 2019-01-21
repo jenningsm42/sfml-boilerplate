@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iomanip>
 
-Game::Game() : m_assetCache("./data"), m_window(sf::VideoMode(800, 600), "GGJ 2019") {
+Game::Game() : m_assetCache("./data"), m_window(sf::VideoMode(800, 600), "SFML Game") {
     m_gui.setTarget(m_window);
 }
 
