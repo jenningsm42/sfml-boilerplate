@@ -39,6 +39,7 @@ class AnimatedSprite : public sf::Sprite {
         int m_currentColumn;
         int m_currentRow;
         float m_currentFrameTime;
+        std::string m_currentAnimationName;
         std::tuple<int, int, int, float> m_currentAnimation;
         sf::IntRect m_spriteRectangle; // Determines which part of texture to draw
 

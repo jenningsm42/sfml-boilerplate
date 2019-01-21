@@ -27,6 +27,13 @@ void Game::run() {
             if (event.type == sf::Event::Closed) {
                 m_window.close();
             }
+            else if (event.type == sf::Event::Resized) {
+                // Update the view to the new size of the window
+                sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
+                m_window.setView(sf::View(visibleArea));
+                m_gui.setView(sf::View(visibleArea));
+            }
+
             m_inputHandler.processEvent(event);
             m_gui.handleEvent(event);
         }
@@ -57,6 +64,10 @@ AssetCache& Game::getAssetCache() noexcept {
 
 SceneHandler& Game::getSceneHandler() noexcept {
     return m_sceneHandler;
+}
+
+InputHandler& Game::getInputHandler() noexcept {
+    return m_inputHandler;
 }
 
 sf::RenderWindow& Game::getRenderWindow() noexcept {

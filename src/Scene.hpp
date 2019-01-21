@@ -2,8 +2,6 @@
 #define SCENE_H
 #include <SFML/Graphics.hpp>
 
-#include "InputHandler.hpp"
-
 class Game;
 
 class Scene {
@@ -13,4 +11,4 @@ class Scene {
         virtual void draw(sf::RenderWindow&) noexcept = 0;
 };
 
-#endif
+#endif // SCENE_H
