@@ -11,14 +11,34 @@ addons:
             - sourceline: 'ppa:texus/tgui-0.8'
         update: true
         packages:
+            - freeglut3-dev
             - g++-7
-            - libsfml-dev
+            - libegl1-mesa-dev
+            - libflac-dev
+            - libfreetype6-dev
+            - libjpeg8-dev
+            - libogg-dev
+            - libopenal-dev
+            - libpthread-stubs0-dev
+            - libsndfile1-dev
             - libtgui-dev
+            - libudev-dev
+            - libx11-dev
+            - libxcb-image0-dev
+            - libxrandr-dev
+before_install:
+    - git clone https://github.com/SFML/SFML.git
+    - cd SFML
+    - cmake .
+    - sudo make install
+    - cd ..
 jobs:
     include:
         - stage: build
           name: build
-          script: make CXX=g++-7
+          script:
+              - mkdir build && cd build
+              - cmake ..
+              - make
 stages:
-    - dependencies
     - build

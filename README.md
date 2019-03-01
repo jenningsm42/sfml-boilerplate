@@ -8,9 +8,12 @@ The project has an example scene with a TGUI button and simple animated characte
 ## Requirements
 * SFML 2.5.1
 * TGUI 0.8
+* CMake 3.1
 
 ## Usage
 ```
+$ mkdir build
+$ cmake ..
 $ make
-$ ./build/game
+$ ./bin/game
 ```
