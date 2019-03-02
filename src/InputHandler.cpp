@@ -18,22 +18,22 @@ InputHandler::InputHandler() noexcept {
 
 InputHandler::InputHandler(const InputHandler& other) {
     std::copy(
-        std::begin(other.m_keyDown),
-        std::end(other.m_keyDown),
-        std::begin(m_keyDown));
+            std::begin(other.m_keyDown),
+            std::end(other.m_keyDown),
+            std::begin(m_keyDown));
     std::copy(
-        std::begin(other.m_previousKeyDown),
-        std::end(other.m_previousKeyDown),
-        std::begin(m_previousKeyDown));
+            std::begin(other.m_previousKeyDown),
+            std::end(other.m_previousKeyDown),
+            std::begin(m_previousKeyDown));
 
     std::copy(
-        std::begin(other.m_mouseDown),
-        std::end(other.m_mouseDown),
-        std::begin(m_mouseDown));
+            std::begin(other.m_mouseDown),
+            std::end(other.m_mouseDown),
+            std::begin(m_mouseDown));
     std::copy(
-        std::begin(other.m_previousMouseDown),
-        std::end(other.m_previousMouseDown),
-        std::begin(m_previousMouseDown));
+            std::begin(other.m_previousMouseDown),
+            std::end(other.m_previousMouseDown),
+            std::begin(m_previousMouseDown));
 
     m_mouseX = other.m_mouseX;
     m_mouseY = other.m_mouseY;
@@ -54,10 +54,12 @@ void InputHandler::processEvent(const sf::Event& event) noexcept {
             m_mouseDown[event.mouseButton.button] = false;
             break;
         case sf::Event::MouseMoved: {
-                m_mouseX = event.mouseMove.x;
-                m_mouseY = event.mouseMove.y;
-            } break;
-        default: break;
+            m_mouseX = event.mouseMove.x;
+            m_mouseY = event.mouseMove.y;
+        }
+            break;
+        default:
+            break;
     }
 }
 

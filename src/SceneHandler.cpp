@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 SceneHandler::SceneHandler()
-    : m_currentScene(nullptr), m_nextScene(nullptr), m_fading(false), m_alpha(0.f) {
+        : m_currentScene(nullptr), m_nextScene(nullptr), m_fading(false), m_alpha(0.f) {
 }
 
 SceneHandler::~SceneHandler() {
@@ -24,18 +24,15 @@ void SceneHandler::update(Game& game, float deltaTime) {
         if (m_nextScene && m_alpha < 1.f) {
             // Haven't yet switched to next scene
             m_alpha += m_fadeRate * deltaTime;
-        }
-        else if (m_nextScene && m_alpha >= 0.99f) {
+        } else if (m_nextScene && m_alpha >= 0.99f) {
             // Finished fading to black, switch scene here
             m_alpha = 1.f;
 
             switchScenes(game);
-        }
-        else if (!m_nextScene && m_alpha > 0.f) {
+        } else if (!m_nextScene && m_alpha > 0.f) {
             // Fading back to scene
             m_alpha -= m_fadeRate * deltaTime;
-        }
-        else if (!m_nextScene && m_alpha < 0.001f) {
+        } else if (!m_nextScene && m_alpha < 0.001f) {
             // Finished fading
             m_alpha = 0.f;
             m_fading = false;
@@ -73,6 +70,6 @@ void SceneHandler::switchScenes(Game& game) {
     m_currentScene = std::move(m_nextScene);
     m_nextScene = nullptr;
 
-    // Let exceptions from here propogate to Game.run to generate a crash report
+    // Let exceptions from here propagate to Game.run to generate a crash report
     m_currentScene->initialize(game);
 }
