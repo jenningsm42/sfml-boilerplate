@@ -21,11 +21,11 @@ void AnimatedSprite::setGridSize(int columns, int rows) noexcept {
 }
 
 void AnimatedSprite::addAnimation(
-    const std::string& name,
-    int startColumn,
-    int startRow,
-    int frameCount,
-    float frameTime
+        const std::string& name,
+        int startColumn,
+        int startRow,
+        int frameCount,
+        float frameTime
 ) noexcept {
     if (startColumn < 0)
         startColumn = 0;
@@ -44,7 +44,7 @@ void AnimatedSprite::addAnimation(
         frameCount = m_columns * m_rows - startFrameNumber - 1;
 
     m_animations[name] = std::tuple<int, int, int, float>(
-        startColumn, startRow, frameCount, frameTime);
+            startColumn, startRow, frameCount, frameTime);
 
     // If this is the first animation, play it by default
     if (m_currentAnimationName == "") {
@@ -77,7 +77,7 @@ void AnimatedSprite::update(float deltaTime) noexcept {
 void AnimatedSprite::nextFrame() noexcept {
     int currentFrameNumber = m_currentRow * m_columns + m_currentColumn;
     int startFrameNumber = std::get<1>(m_currentAnimation) * m_columns
-        + std::get<0>(m_currentAnimation);
+                           + std::get<0>(m_currentAnimation);
     int endFrameNumber = startFrameNumber + std::get<2>(m_currentAnimation) - 1;
 
     if (currentFrameNumber >= endFrameNumber) {

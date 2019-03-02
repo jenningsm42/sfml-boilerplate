@@ -26,8 +26,7 @@ void Game::run() {
         while (m_window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 m_window.close();
-            }
-            else if (event.type == sf::Event::Resized) {
+            } else if (event.type == sf::Event::Resized) {
                 // Update the view to the new size of the window
                 sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
                 m_window.setView(sf::View(visibleArea));

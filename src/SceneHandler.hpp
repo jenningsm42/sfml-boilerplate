@@ -1,40 +1,43 @@
 #ifndef SCENEHANDLER_H
 #define SCENEHANDLER_H
+
 #include "Scene.hpp"
 
 class SceneHandler {
-    public:
-        SceneHandler();
-        SceneHandler(const SceneHandler&) = delete;
-        ~SceneHandler();
+public:
+    SceneHandler();
 
-        /* setScene stores the given scene to be switched to on the
-         * next update call. If fade is true, then the screen will
-         * fade to black first. */
-        void setScene(std::unique_ptr<Scene>, bool fade = true) noexcept;
+    SceneHandler(const SceneHandler&) = delete;
 
-        /* update updates the current scene and switches to the next scene if
-         * setScene was called. update will fade to black before switching
-         * scenes if setScene was called. */
-        void update(Game& game, float deltaTime);
+    ~SceneHandler();
 
-        /* draw renders the current scene */
-        void draw(sf::RenderWindow&) noexcept;
+    /* setScene stores the given scene to be switched to on the
+     * next update call. If fade is true, then the screen will
+     * fade to black first. */
+    void setScene(std::unique_ptr<Scene>, bool fade = true) noexcept;
 
-        /* drawFade renders the fade-to-black effect on top of
-         * everything else */
-        void drawFade(sf::RenderWindow&) noexcept;
+    /* update updates the current scene and switches to the next scene if
+     * setScene was called. update will fade to black before switching
+     * scenes if setScene was called. */
+    void update(Game& game, float deltaTime);
 
-    private:
-        std::unique_ptr<Scene> m_currentScene;
-        std::unique_ptr<Scene> m_nextScene;
-        bool m_fading;
-        float m_alpha; // 0.0 = no black, 1.0 = full black screen
-        sf::RectangleShape m_fadeBox; // Black rectangle overlay for fading
+    /* draw renders the current scene */
+    void draw(sf::RenderWindow&) noexcept;
 
-        const float m_fadeRate = 1.5f;
+    /* drawFade renders the fade-to-black effect on top of
+     * everything else */
+    void drawFade(sf::RenderWindow&) noexcept;
 
-        void switchScenes(Game&);
+private:
+    std::unique_ptr<Scene> m_currentScene;
+    std::unique_ptr<Scene> m_nextScene;
+    bool m_fading;
+    float m_alpha; // 0.0 = no black, 1.0 = full black screen
+    sf::RectangleShape m_fadeBox; // Black rectangle overlay for fading
+
+    const float m_fadeRate = 1.5f;
+
+    void switchScenes(Game&);
 };
 
 #endif // SCENEHANDLER_H
