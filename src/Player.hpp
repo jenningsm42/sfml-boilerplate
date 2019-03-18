@@ -12,7 +12,7 @@ public:
 
     void load(Game&);
 
-    void update(Game&, const GameObjectCollection&, float deltaTime) noexcept override;
+    void update(Game&, GameObjectCollection&, float deltaTime) noexcept override;
 
 private:
     const float m_speed = 200.f;
