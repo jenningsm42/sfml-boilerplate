@@ -12,5 +12,5 @@ void GameScene::initialize(Game& game) {
 
     auto player = std::make_shared<Player>();
     player->load(game);
-    addObject("player", player);
+    m_gameObjects.addObject("player", player);
 }

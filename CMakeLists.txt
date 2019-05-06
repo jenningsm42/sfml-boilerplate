@@ -16,7 +16,8 @@ set(SOURCE_FILES
         src/InputHandler.cpp
         src/Player.cpp
         src/Scene.cpp
-        src/SceneHandler.cpp)
+        src/SceneHandler.cpp
+        src/GameObjectCollection.cpp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin")
 

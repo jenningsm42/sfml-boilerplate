@@ -22,7 +22,7 @@ void Player::load(Game& game) {
     m_sprite.play("idle");
 }
 
-void Player::update(Game& game, const GameObjectCollection&, float deltaTime) noexcept {
+void Player::update(Game& game, GameObjectCollection&, float deltaTime) noexcept {
     auto& input = game.getInputHandler();
 
     const bool movingLeft = input.getKeyDown(sf::Keyboard::Left);
